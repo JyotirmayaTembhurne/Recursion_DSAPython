@@ -1,0 +1,17 @@
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        try:
+            def Func(x, n, ans=None):
+                if not ans:
+                    ans = x
+                if n>1:
+                    ans = x * ans
+                    return Func(x, n - 1, ans)
+                elif n < 1:
+                    ans = ans / x
+                    return Func(x, n + 1, ans)
+                else:
+                    return ans
+            return Func(x,n)
+        except Exception:
+            return x**n
